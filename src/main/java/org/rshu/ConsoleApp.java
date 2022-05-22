@@ -1,7 +1,9 @@
 package org.rshu;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ConsoleApp {
 
@@ -28,9 +30,10 @@ public class ConsoleApp {
         System.out.println("Fill the edges or... \nType 3 to finish filling the Graph");
         while (!result.equals(Options.finishOption.getOption())) {
             result = this.scanner.nextLine();
-            if (result.length() > 1) {
+            String edge = findEdge(result);
+            if (!edge.equals("")) {
                 try {
-                    this.addEdge(result);
+                    this.addEdge(edge);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -48,7 +51,14 @@ public class ConsoleApp {
             while(this.scanner.hasNextLine())
             {
                 String readenLine = this.scanner.nextLine();
-                this.addEdge(readenLine);
+                String edge = findEdge(readenLine);
+                if (!edge.equals("")) {
+                    try {
+                        this.addEdge(edge);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
             }
             this.printSpanningTree();
         }
@@ -67,6 +77,21 @@ public class ConsoleApp {
     {
         String[] split = edge.split(" ");
         this.graph.addEdge(new Edge(split[0], Integer.parseInt(split[1])));
+    }
+
+    protected String findEdge(String line)
+    {
+        Pattern edgePattern = Pattern.compile("[A-Z][A-Z]\\s\\d+");
+        Matcher matcher = edgePattern.matcher(line);
+        try
+        {
+            matcher.find();
+            return matcher.group();
+        }
+        catch (Exception e)
+        {
+            return "";
+        }
     }
     protected Scanner scanner;
     protected Graph graph;
