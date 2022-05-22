@@ -26,7 +26,7 @@ public class SpanningTree {
         return result;
     }
 
-    protected void makeMinimalSpanningTree() {
+    private void makeMinimalSpanningTree() {
         //Kruskal algorithm
 
         //sort edges
@@ -70,7 +70,7 @@ public class SpanningTree {
         }
     }
 
-    protected void splitEdgeToVertices(final Edge edge) {
+    private void splitEdgeToVertices(final Edge edge) {
         Vertex first = edge.getFirstVertex();
         Vertex second = edge.getSecondVertex();
 
@@ -83,7 +83,7 @@ public class SpanningTree {
         }
     }
 
-    protected void sortEdges() {
+    private void sortEdges() {
         this.edges.sort(new Comparator<Edge>() {
             @Override
             public int compare(final Edge e1, final Edge e2) {
@@ -92,9 +92,9 @@ public class SpanningTree {
         });
     }
 
-    protected ArrayList<Edge> edges;
+    private ArrayList<Edge> edges;
 
-    protected ArrayList<Edge> minimalSpanningTree;
+    private ArrayList<Edge> minimalSpanningTree;
 
-    protected ArrayList<Vertex> vertices;
+    private ArrayList<Vertex> vertices;
 }

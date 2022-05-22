@@ -20,7 +20,7 @@ public class ConsoleApp {
             this.fileRead();
         }
     }
-    protected void consoleRead() {
+    private void consoleRead() {
         String result = scanner.nextLine();
         System.out.println("Fill the edges or... \nType 3 to finish filling the Graph");
         while (!result.equals(Options.finishOption.getOption())) {
@@ -36,7 +36,7 @@ public class ConsoleApp {
         }
         printSpanningTree();
     }
-    protected void fileRead() {
+    private void fileRead() {
         System.out.println("Filename/Path is required: ");
         String result = this.scanner.next();
         try {
@@ -57,17 +57,17 @@ public class ConsoleApp {
             System.out.println(fe.getMessage());
         }
     }
-    protected void printSpanningTree() {
+    private void printSpanningTree() {
         this.scanner.close();
         this.spanningTree = new SpanningTree(this.graph);
         System.out.println(this.spanningTree.getMinimalSpanningTreeString());
     }
-    protected void addEdge(final String edge) {
+    private void addEdge(final String edge) {
         String[] split = edge.split(" ");
         this.graph.addEdge(new Edge(split[0], Integer.parseInt(split[1])));
     }
 
-    protected String findEdge(final String line) {
+    private String findEdge(final String line) {
         Pattern edgePattern = Pattern.compile("[A-Z][A-Z]\\s\\d+");
         Matcher matcher = edgePattern.matcher(line);
         try {
@@ -77,7 +77,7 @@ public class ConsoleApp {
             return "";
         }
     }
-    protected Scanner scanner;
-    protected Graph graph;
-    protected SpanningTree spanningTree;
+    private Scanner scanner;
+    private Graph graph;
+    private SpanningTree spanningTree;
 }

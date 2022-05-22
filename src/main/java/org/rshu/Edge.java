@@ -46,9 +46,9 @@ public class Edge {
 
 
 
-    protected int edgeWeight;
-    protected Vertex firstVertex;
-    protected Vertex secondVertex;
+    private int edgeWeight;
+    private Vertex firstVertex;
+    private Vertex secondVertex;
 
-    protected String edgeName;
+    private String edgeName;
 }

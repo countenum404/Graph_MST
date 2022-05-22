@@ -10,5 +10,5 @@ public enum Options {
     Options(final String value) {
         this.option = value;
     }
-    protected final String option;
+    private final String option;
 }

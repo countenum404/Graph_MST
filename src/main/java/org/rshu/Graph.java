@@ -16,5 +16,5 @@ public class Graph {
         edges.add(edge);
     }
 
-    protected ArrayList<Edge> edges;
+    private ArrayList<Edge> edges;
 }

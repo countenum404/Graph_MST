@@ -33,8 +33,8 @@ public class Vertex {
         return false;
     }
 
-    protected char vertexName;
+    private char vertexName;
 
-    protected int rank;
+    private int rank;
 
 }
