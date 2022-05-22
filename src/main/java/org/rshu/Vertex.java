@@ -34,7 +34,6 @@ public class Vertex {
     }
 
     private char vertexName;
-
     private int rank;
 
 }

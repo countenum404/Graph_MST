@@ -32,6 +32,7 @@ public class Edge {
     public Vertex getFirstVertex() {
         return this.firstVertex;
     }
+
     public void setFirstVertex(final Vertex vertex) {
         this.firstVertex = vertex;
     }
@@ -40,15 +41,12 @@ public class Edge {
     public Vertex getSecondVertex() {
         return this.secondVertex;
     }
+
     public void setSecondVertex(final Vertex vertex) {
         this.secondVertex = vertex;
     }
 
-
-
     private int edgeWeight;
     private Vertex firstVertex;
     private Vertex secondVertex;
-
-    private String edgeName;
 }

@@ -3,7 +3,6 @@ package org.rshu;
 import java.util.ArrayList;
 
 public class Graph {
-
     public Graph() {
         edges = new ArrayList<Edge>();
     }

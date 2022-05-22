@@ -2,8 +2,8 @@ package org.rshu;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-public class SpanningTree {
 
+public class SpanningTree {
     public SpanningTree(final Graph graph) {
         //ctor
         this.edges = graph.getEdges();
