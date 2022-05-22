@@ -1,40 +1,32 @@
 package org.rshu;
 
 public class Vertex {
-    public Vertex(char Name)
-    {
+    public Vertex(final char Name) {
         this.vertexName = Name;
     }
 
-    public void setVertexName(char Name)
-    {
+    public void setVertexName(final char Name) {
         this.vertexName = Name;
         this.rank = 0;
     }
 
-    public char getVertexName()
-    {
+    public char getVertexName() {
         return  this.vertexName;
     }
 
-    public void setRank(int value)
-    {
+    public void setRank(final int value) {
         this.rank = value;
     }
 
-    public int getRank()
-    {
+    public int getRank() {
         return this.rank;
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof Vertex)
-        {
+    public boolean equals(final Object obj) {
+        if (obj instanceof Vertex) {
             Vertex v = (Vertex) obj;
-            if (v.vertexName == this.vertexName)
-            {
+            if (v.vertexName == this.vertexName) {
                 return true;
             }
         }

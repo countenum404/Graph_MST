@@ -4,13 +4,11 @@ public enum Options {
     consoleOption("1"),
     fileOption("2"),
     finishOption("3");
-    public final String getOption()
-    {
+    public final String getOption() {
         return  this.option;
     }
-    Options(String value)
-    {
+    Options(final String value) {
         this.option = value;
     }
-    protected String option;
+    protected final String option;
 }
