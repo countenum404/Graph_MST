@@ -1,7 +1,8 @@
 package org.rshu;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +37,7 @@ public class ConsoleApp {
         }
         printSpanningTree();
     }
+
     private void fileRead() {
         System.out.println("Filename/Path is required: ");
         String result = this.scanner.next();
@@ -57,11 +59,13 @@ public class ConsoleApp {
             System.out.println(fe.getMessage());
         }
     }
+
     private void printSpanningTree() {
         this.scanner.close();
         this.spanningTree = new SpanningTree(this.graph);
         System.out.println(this.spanningTree.getMinimalSpanningTreeString());
     }
+
     private void addEdge(final String edge) {
         String[] split = edge.split(" ");
         this.graph.addEdge(new Edge(split[0], Integer.parseInt(split[1])));
@@ -77,6 +81,7 @@ public class ConsoleApp {
             return "";
         }
     }
+
     private Scanner scanner;
     private Graph graph;
     private SpanningTree spanningTree;
