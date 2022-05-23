@@ -1,4 +1,4 @@
-package org.rshu;
+package org.rshu.app;
 
 public enum Options {
     consoleOption("1"),

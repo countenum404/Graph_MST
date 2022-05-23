@@ -1,7 +1,7 @@
 package org.rshu;
 
 
-// fix version
+import org.rshu.app.ConsoleApp;
 
 public class Main {
     public static void main(String[] args) {

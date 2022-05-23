@@ -1,4 +1,8 @@
-package org.rshu;
+package org.rshu.app;
+
+import org.rshu.graph.Edge;
+import org.rshu.graph.Graph;
+import org.rshu.graph.SpanningTree;
 
 import java.io.File;
 import java.io.FileNotFoundException;

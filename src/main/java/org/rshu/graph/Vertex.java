@@ -1,4 +1,4 @@
-package org.rshu;
+package org.rshu.graph;
 
 public class Vertex {
     /**
