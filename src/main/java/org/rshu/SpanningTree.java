@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class SpanningTree {
+    /**
+     * @param graph takes a Graph object argument and creates a Minimal Spanning Tree
+     */
     public SpanningTree(final Graph graph) {
         //ctor
         this.edges = graph.getEdges();
@@ -12,6 +15,9 @@ public class SpanningTree {
         this.makeMinimalSpanningTree();
     }
 
+    /**
+     * @return Returns a view of Spanning Tree as String, so you can print these or use in other cases
+     */
     public String getMinimalSpanningTreeString() {
         //Generate output string
         String result = "";
@@ -26,7 +32,11 @@ public class SpanningTree {
         return result;
     }
 
+    /**
+     * Kruskal algorithm function that provides after processing the minimalSpanningTree as the class member
+     */
     private void makeMinimalSpanningTree() {
+
         //Kruskal algorithm
 
         //sort edges
@@ -70,19 +80,26 @@ public class SpanningTree {
         }
     }
 
+
+    /**
+     * @param edge gets an edge to split into the unique Vertices
+     */
     private void splitEdgeToVertices(final Edge edge) {
         Vertex first = edge.getFirstVertex();
         Vertex second = edge.getSecondVertex();
 
-        if(!this.vertices.contains(first)) {
+        if (!this.vertices.contains(first)) {
             this.vertices.add(first);
         }
 
-        if(!this.vertices.contains(second)) {
+        if (!this.vertices.contains(second)) {
             this.vertices.add(second);
         }
     }
 
+    /**
+     *  Just sorting the edges
+     */
     private void sortEdges() {
         this.edges.sort(new Comparator<Edge>() {
             @Override
@@ -92,9 +109,18 @@ public class SpanningTree {
         });
     }
 
+    /**
+     *  Takes all edges from graph, used as container in Kruskal algorithm
+     */
     private ArrayList<Edge> edges;
 
+    /**
+     *  Container of the edges that processed by Kruskal's algorithm
+     */
     private ArrayList<Edge> minimalSpanningTree;
 
+    /**
+     *  Container that takes vertices from edges and by Kruskal's algorithm
+     */
     private ArrayList<Vertex> vertices;
 }

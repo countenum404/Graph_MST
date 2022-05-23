@@ -7,10 +7,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConsoleApp {
+    /**
+     * Basic Constructor
+     */
     public ConsoleApp() {
         this.scanner = new Scanner(System.in);
         this.graph = new Graph();
     }
+
+    /**
+     * Runs an application
+     */
     public void run() {
         System.out.println("Read edges from console/file?\n 1. console \n 2. file");
         String result = this.scanner.next();
