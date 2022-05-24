@@ -4,6 +4,7 @@ import org.rshu.graph.Edge;
 import org.rshu.graph.Graph;
 import org.rshu.graph.SpanningTree;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -11,6 +12,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConsoleApp {
+    private Scanner scanner;
+    private Graph graph;
+    private SpanningTree spanningTree;
     /**
      * Basic Constructor
      */
@@ -37,52 +41,48 @@ public class ConsoleApp {
         System.out.println("Fill the edges or... \nType 3 to finish filling the Graph");
         while (!result.equals(Options.finishOption.getOption())) {
             result = this.scanner.nextLine();
-            String edge = findEdge(result);
+            String edge = validateInput(result);
             if (!edge.equals("")) {
                 try {
-                    this.addEdge(edge);
+                    this.graph.addEdge(new Edge(edge));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
             }
         }
-        printSpanningTree();
+        this.spanningTree = new SpanningTree(this.graph);
+        this.spanningTree.printSpanningTree();
     }
 
     private void fileRead() {
-        System.out.println("Filename/Path is required: ");
-        String result = this.scanner.next();
+
+        FileDialog dialog = new FileDialog(new Frame(), "Take a file", FileDialog.LOAD);
+        dialog.setFile("*.txt");
+        dialog.setModal(true);
+        dialog.setVisible(true);
+        File file = dialog.getFiles()[0];
+
         try {
-            this.scanner = new Scanner(new File(result));
+            this.scanner = new Scanner(file);
             while (this.scanner.hasNextLine()) {
                 String readenLine = this.scanner.nextLine();
-                String edge = findEdge(readenLine);
+                String edge = validateInput(readenLine);
                 if (!edge.equals("")) {
                     try {
-                        this.addEdge(edge);
+                        this.graph.addEdge(new Edge(edge));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                 }
             }
-            this.printSpanningTree();
+            this.spanningTree = new SpanningTree(this.graph);
+            this.spanningTree.printSpanningTree();
         } catch (FileNotFoundException fe) {
             System.out.println(fe.getMessage());
         }
     }
 
-    private void printSpanningTree() {
-        this.scanner.close();
-        this.spanningTree = new SpanningTree(this.graph);
-        System.out.println(this.spanningTree.getMinimalSpanningTreeString());
-    }
-
-    private void addEdge(final String edge) {
-        String[] split = edge.split(" ");
-        this.graph.addEdge(new Edge(split[0], Integer.parseInt(split[1])));
-    }
-
-    private String findEdge(final String line) {
+    private String validateInput(String line) {
         Pattern edgePattern = Pattern.compile("[A-Z][A-Z]\\s\\d+");
         Matcher matcher = edgePattern.matcher(line);
         try {
@@ -92,8 +92,4 @@ public class ConsoleApp {
             return "";
         }
     }
-
-    private Scanner scanner;
-    private Graph graph;
-    private SpanningTree spanningTree;
 }

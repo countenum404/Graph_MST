@@ -1,11 +1,13 @@
 package org.rshu.graph;
 
 public class Vertex {
+    private char vertexName;
+    private int rank;
     /**
      * @param Name Takes an argument (instance of char)
      *             and sets rank to 0
      */
-    public Vertex(final char Name) {
+    public Vertex(char Name) {
         this.vertexName = Name;
         this.rank = 0;
     }
@@ -14,7 +16,7 @@ public class Vertex {
      * @param Name Takes an argument (instance of char)
      *             and sets rank to 0
      */
-    public void setVertexName(final char Name) {
+    public void setVertexName(char Name) {
         this.vertexName = Name;
         this.rank = 0;
     }
@@ -29,7 +31,7 @@ public class Vertex {
     /**
      * @param value is a rank (used in Kruskal's algorithm as mark of Set)
      */
-    public void setRank(final int value) {
+    public void setRank(int value) {
         this.rank = value;
     }
 
@@ -45,7 +47,7 @@ public class Vertex {
      * @return returns a true if the obj param is instance of Vertex
      */
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (obj instanceof Vertex) {
             Vertex v = (Vertex) obj;
             if (v.vertexName == this.vertexName) {
@@ -55,7 +57,6 @@ public class Vertex {
         return false;
     }
 
-    private char vertexName;
-    private int rank;
+
 
 }

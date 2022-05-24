@@ -9,7 +9,7 @@ public enum Options {
         return  this.option;
     }
 
-    Options(final String value) {
+    Options(String value) {
         this.option = value;
     }
 

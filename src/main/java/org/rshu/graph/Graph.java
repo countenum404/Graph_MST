@@ -3,6 +3,7 @@ package org.rshu.graph;
 import java.util.ArrayList;
 
 public class Graph {
+    private ArrayList<Edge> edges;
     /**
      * Basic consrtuctor
      */
@@ -20,9 +21,9 @@ public class Graph {
     /**
      * @param edge is need to add Edge
      */
-    public void addEdge(final Edge edge) {
+    public void addEdge(Edge edge) {
         edges.add(edge);
     }
 
-    private ArrayList<Edge> edges;
+
 }
